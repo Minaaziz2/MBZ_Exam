@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+.content {
+    padding: 40px;
+}
+
+.section {
+    margin-bottom: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.section-header {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: white;
+    text-align: center;
+}
+
+.linear-algebra { 
+    background: linear-gradient(135deg, #e74c3c, #c0392b); 
+}
+
+.calculus { 
+    background: linear-gradient(135deg, #f39c12, #d68910); 
+}
+
+.probability { 
+    background: linear-gradient(135deg, #9b59b6, #8e44ad); 
+}
+
+.statistics { 
+    background: linear-gradient(135deg, #2ecc71, #27ae60); 
+}
+
+.ml-fundamentals { 
+    background: linear-gradient(135deg, #3498db, #2980b9); 
+}
+
+.question {
+    background: #f8f9fa;
+    margin: 15px;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 5px solid #3498db;
+    transition: transform 0.2s ease;
+}
+
+.question:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.question-number {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.question-text {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.options {
+    margin: 15px 0;
+}
+
+.option {
+    background: #ffffff;
+    border: 2px solid #ecf0f1;
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin: 8px 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1em;
+}
+
+.option:hover {
+    border-color: #3498db;
+    background: #ebf3fd;
+}
+
+.answer {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.answer-label {
+    opacity: 0.9;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.math {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+}
+
+.navigation {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.nav-item {
+    display: block;
+    padding: 8px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.nav-linear { 
+    color: #e74c3c; 
+}
+
+.nav-calculus { 
+    color: #f39c12; 
+}
+
+.nav-probability { 
+    color: #9b59b6; 
+}
+
+.nav-statistics { 
+    color: #2ecc71; 
+}
+
+.nav-ml { 
+    color: #3498db; 
+}
+
+.nav-item:hover {
+    background: #f1f2f6;
+    transform: translateX(-5px);
+}
+
+@media (max-width: 768px) {
+    .navigation { 
+        display: none; 
+    }
+    
+    .content { 
+        padding: 20px; 
+    }
+    
+    .header h1 { 
+        font-size: 2em; 
+    }
+}
