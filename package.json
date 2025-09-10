@@ -1,0 +1,39 @@
+{
+  "name": "ml-phd-exam-questions",
+  "version": "1.0.0",
+  "description": "100 practice questions for PhD Machine Learning admission screening",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server .",
+    "build": "echo 'Static site - no build process needed'",
+    "test": "echo 'No tests specified'",
+    "validate": "npx html-validate index.html"
+  },
+  "keywords": [
+    "machine-learning",
+    "phd",
+    "exam",
+    "practice-questions",
+    "linear-algebra",
+    "calculus",
+    "probability",
+    "statistics",
+    "ml-fundamentals"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Minaaziz2/ml-phd-exam-questions.git"
+  },
+  "homepage": "https://Minaaziz2.github.io/ml-phd-exam-questions/",
+  "devDependencies": {
+    "serve": "^14.0.0",
+    "live-server": "^1.2.2",
+    "html-validate": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
