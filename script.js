@@ -1,92 +1,166 @@
-// Smooth scrolling for navigation
-document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Interactive option selection
-document.querySelectorAll('.option').forEach(option => {
-    option.addEventListener('click', function() {
-        // Remove previous selections in this question
-        const question = this.closest('.question');
-        question.querySelectorAll('.option').forEach(opt => {
-            opt.style.backgroundColor = '#ffffff';
-            opt.style.borderColor = '#ecf0f1';
-            opt.classList.remove('selected');
-        });
-        
-        // Highlight selected option
-        this.style.backgroundColor = '#e3f2fd';
-        this.style.borderColor = '#2196f3';
-        this.classList.add('selected');
-    });
-});
-
-// Add scroll indicator for navigation
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('.section');
-    const navItems = document.querySelectorAll('.nav-item');
-    
-    let current = '';
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 100) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navItems.forEach(item => {
-        item.classList.remove('active');
-        item.style.backgroundColor = 'transparent';
-        if (item.getAttribute('href') === '#' + current) {
-            item.classList.add('active');
-            item.style.backgroundColor = '#f1f2f6';
-        }
-    });
-});
-
-// Question progress tracking
+// Global variables
 let answeredQuestions = 0;
-const totalQuestions = 100;
+let correctAnswers = 0;
+let incorrectAnswers = 0;
+let answersVisible = false;
+let navigationVisible = true;
+const totalQuestions = 10; // Update this when you add more questions
 
-function updateProgress() {
-    answeredQuestions = document.querySelectorAll('.option.selected').length;
+// Initialize the application
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('PhD ML Exam loaded successfully!');
+    console.log('Use keyboard shortcuts:');
+    console.log('- Press 1, 2, 3, or 4 to select options');
+    console.log('- Use arrow keys to navigate between sections');
     
-    // Create or update progress bar if it doesn't exist
-    let progressBar = document.querySelector('.progress-bar');
-    if (!progressBar) {
-        progressBar = document.createElement('div');
-        progressBar.className = 'progress-bar';
-        progressBar.innerHTML = `
-            <div class="progress-text">Progress: <span id="progress-count">0</span>/${totalQuestions}</div>
-            <div class="progress-fill" style="width: 0%"></div>
-        `;
-        document.querySelector('.header').appendChild(progressBar);
+    initializeEventListeners();
+    updateProgress();
+    updateScore();
+});
+
+// Initialize all event listeners
+function initializeEventListeners() {
+    // Smooth scrolling for navigation
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Interactive option selection
+    document.querySelectorAll('.option').forEach(option => {
+        option.addEventListener('click', function() {
+            handleOptionClick(this);
+        });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', handleKeyboardNavigation);
+
+    // Scroll indicator for navigation
+    window.addEventListener('scroll', updateNavigationIndicator);
+}
+
+// Handle option click
+function handleOptionClick(clickedOption) {
+    const question = clickedOption.closest('.question');
+    const options = question.querySelectorAll('.option');
+    const correctAnswer = question.getAttribute('data-correct');
+    const selectedAnswer = clickedOption.getAttribute('data-value');
+    const questionStatus = question.querySelector('.question-status');
+    
+    // Check if this question was previously answered
+    const wasAnswered = question.querySelector('.option.selected') !== null;
+    
+    // Remove previous selections in this question
+    options.forEach(opt => {
+        opt.classList.remove('selected', 'correct', 'incorrect');
+    });
+    
+    // Highlight selected option
+    clickedOption.classList.add('selected');
+    
+    // Update question status and scoring
+    if (selectedAnswer === correctAnswer) {
+        clickedOption.classList.add('correct');
+        questionStatus.textContent = 'Correct';
+        questionStatus.className = 'question-status status-correct';
+        
+        if (!wasAnswered) {
+            correctAnswers++;
+            answeredQuestions++;
+        } else {
+            // If previously incorrect, adjust counts
+            const wasCorrect = question.dataset.wasCorrect === 'true';
+            if (!wasCorrect) {
+                correctAnswers++;
+                incorrectAnswers--;
+            }
+        }
+        question.dataset.wasCorrect = 'true';
+    } else {
+        clickedOption.classList.add('incorrect');
+        questionStatus.textContent = 'Incorrect';
+        questionStatus.className = 'question-status status-incorrect';
+        
+        if (!wasAnswered) {
+            incorrectAnswers++;
+            answeredQuestions++;
+        } else {
+            // If previously correct, adjust counts
+            const wasCorrect = question.dataset.wasCorrect === 'true';
+            if (wasCorrect) {
+                incorrectAnswers++;
+                correctAnswers--;
+            }
+        }
+        question.dataset.wasCorrect = 'false';
     }
     
+    updateProgress();
+    updateScore();
+}
+
+// Update progress tracking
+function updateProgress() {
     const progressPercent = (answeredQuestions / totalQuestions) * 100;
     document.querySelector('#progress-count').textContent = answeredQuestions;
     document.querySelector('.progress-fill').style.width = progressPercent + '%';
 }
 
-// Add event listeners for progress tracking
-document.querySelectorAll('.option').forEach(option => {
-    option.addEventListener('click', function() {
-        setTimeout(updateProgress, 100); // Small delay to ensure selection is processed
-    });
-});
+// Update score display
+function updateScore() {
+    document.querySelector('#correct-count').textContent = correctAnswers;
+    document.querySelector('#incorrect-count').textContent = incorrectAnswers;
+    
+    const scorePercentage = answeredQuestions > 0 ? Math.round((correctAnswers / answeredQuestions) * 100) : 0;
+    document.querySelector('#score-percentage').textContent = scorePercentage + '%';
+}
 
-// Keyboard navigation
-document.addEventListener('keydown', function(e) {
+// Toggle answers visibility
+function toggleAnswers() {
+    answersVisible = !answersVisible;
+    const answers = document.querySelectorAll('.answer');
+    const toggleButton = document.querySelector('#answer-toggle');
+    
+    answers.forEach(answer => {
+        if (answersVisible) {
+            answer.classList.add('show');
+            answer.style.display = 'block';
+        } else {
+            answer.classList.remove('show');
+            answer.style.display = 'none';
+        }
+    });
+    
+    toggleButton.textContent = answersVisible ? 'Hide Answers' : 'Show Answers';
+}
+
+// Toggle navigation visibility
+function toggleNavigation() {
+    navigationVisible = !navigationVisible;
+    const navigation = document.querySelector('#navigation');
+    const toggleButton = document.querySelector('.nav-toggle');
+    
+    if (navigationVisible) {
+        navigation.classList.remove('hidden');
+        toggleButton.textContent = '☰ Hide';
+    } else {
+        navigation.classList.add('hidden');
+        toggleButton.textContent = '☰ Show';
+    }
+}
+
+// Handle keyboard navigation
+function handleKeyboardNavigation(e) {
     const currentQuestion = document.querySelector('.question:hover') || document.querySelector('.question');
     
     if (currentQuestion && ['1', '2', '3', '4'].includes(e.key)) {
@@ -118,34 +192,90 @@ document.addEventListener('keydown', function(e) {
             sections[nextIndex].scrollIntoView({ behavior: 'smooth' });
         }
     }
-});
+    
+    // Toggle answers with 'A' key
+    if (e.key === 'a' || e.key === 'A') {
+        if (!e.ctrlKey && !e.metaKey) {
+            toggleAnswers();
+        }
+    }
+    
+    // Toggle navigation with 'N' key
+    if (e.key === 'n' || e.key === 'N') {
+        if (!e.ctrlKey && !e.metaKey) {
+            toggleNavigation();
+        }
+    }
+}
 
-// Add tooltips for answer explanations
-document.querySelectorAll('.answer').forEach(answer => {
-    answer.style.cursor = 'help';
-    answer.addEventListener('click', function() {
-        this.style.transform = this.style.transform === 'scale(1.02)' ? 'scale(1)' : 'scale(1.02)';
+// Update navigation indicator
+function updateNavigationIndicator() {
+    const sections = document.querySelectorAll('.section');
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    let current = '';
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100) {
+            current = section.getAttribute('id');
+        }
     });
-});
+    
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === '#' + current) {
+            item.classList.add('active');
+        }
+    });
+}
 
 // Print functionality
 function printQuestions() {
-    window.print();
+    // Show all answers for printing
+    const wasVisible = answersVisible;
+    if (!answersVisible) {
+        toggleAnswers();
+    }
+    
+    // Print
+    setTimeout(() => {
+        window.print();
+        
+        // Restore answer visibility after printing
+        if (!wasVisible) {
+            setTimeout(() => toggleAnswers(), 1000);
+        }
+    }, 100);
 }
 
 // Export results functionality
 function exportResults() {
-    const results = [];
+    const results = {
+        examTitle: 'PhD Machine Learning - 100 Practice Questions',
+        timestamp: new Date().toISOString(),
+        totalQuestions: totalQuestions,
+        answeredQuestions: answeredQuestions,
+        correctAnswers: correctAnswers,
+        incorrectAnswers: incorrectAnswers,
+        scorePercentage: answeredQuestions > 0 ? Math.round((correctAnswers / answeredQuestions) * 100) : 0,
+        questions: []
+    };
+    
     document.querySelectorAll('.question').forEach((question, index) => {
         const questionText = question.querySelector('.question-text').textContent;
         const selectedOption = question.querySelector('.option.selected');
-        const answer = question.querySelector('.answer').textContent;
+        const correctAnswer = question.getAttribute('data-correct');
+        const answerText = question.querySelector('.answer').textContent.replace('Answer:', '').trim();
+        const isCorrect = question.dataset.wasCorrect === 'true';
         
-        results.push({
+        results.questions.push({
             questionNumber: index + 1,
-            question: questionText,
-            selectedAnswer: selectedOption ? selectedOption.textContent : 'Not answered',
-            correctAnswer: answer
+            question: questionText.trim(),
+            selectedAnswer: selectedOption ? selectedOption.textContent.trim() : 'Not answered',
+            correctAnswer: correctAnswer,
+            correctAnswerText: answerText,
+            isCorrect: selectedOption ? isCorrect : null,
+            section: question.closest('.section').id
         });
     });
     
@@ -155,26 +285,99 @@ function exportResults() {
     
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'ml_exam_results.json';
+    link.download = `ml_exam_results_${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
     
     URL.revokeObjectURL(url);
 }
 
-// Initialize the application
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('PhD ML Exam loaded successfully!');
-    console.log('Use keyboard shortcuts:');
-    console.log('- Press 1, 2, 3, or 4 to select options');
-    console.log('- Use arrow keys to navigate between sections');
+// Reset exam functionality
+function resetExam() {
+    if (confirm('Are you sure you want to reset all answers? This action cannot be undone.')) {
+        location.reload();
+    }
+}
+
+// Add tooltips for better user experience
+function addTooltips() {
+    // Add tooltip for answer sections
+    document.querySelectorAll('.answer').forEach(answer => {
+        answer.title = 'Click to highlight this explanation';
+        answer.style.cursor = 'help';
+        answer.addEventListener('click', function() {
+            this.style.transform = this.style.transform === 'scale(1.02)' ? 'scale(1)' : 'scale(1.02)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+    });
     
-    // Add utility buttons
-    const utilityButtons = document.createElement('div');
-    utilityButtons.className = 'utility-buttons';
-    utilityButtons.innerHTML = `
-        <button onclick="printQuestions()" class="util-btn">Print</button>
-        <button onclick="exportResults()" class="util-btn">Export Results</button>
-        <button onclick="location.reload()" class="util-btn">Reset</button>
-    `;
-    document.querySelector('.header').appendChild(utilityButtons);
+    // Add tooltips for utility buttons
+    document.querySelector('#answer-toggle').title = 'Show/hide all answer explanations (Shortcut: A)';
+    document.querySelector('.nav-toggle').title = 'Show/hide navigation sidebar (Shortcut: N)';
+}
+
+// Performance optimization: Lazy load sections
+function lazyLoadSections() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('loaded');
+            }
+        });
+    });
+    
+    document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+    });
+}
+
+// Initialize additional features
+document.addEventListener('DOMContentLoaded', function() {
+    addTooltips();
+    lazyLoadSections();
+    
+    // Add keyboard shortcut hints
+    console.log('Keyboard Shortcuts:');
+    console.log('- 1, 2, 3, 4: Select answer options');
+    console.log('- ↑, ↓: Navigate between sections');
+    console.log('- A: Toggle answer visibility');
+    console.log('- N: Toggle navigation sidebar');
+    console.log('- Ctrl+P: Print questions');
 });
+
+// Auto-save progress to localStorage (optional)
+function saveProgress() {
+    if (typeof Storage !== "undefined") {
+        const progress = {
+            answeredQuestions,
+            correctAnswers,
+            incorrectAnswers,
+            timestamp: new Date().toISOString()
+        };
+        localStorage.setItem('mlExamProgress', JSON.stringify(progress));
+    }
+}
+
+function loadProgress() {
+    if (typeof Storage !== "undefined") {
+        const saved = localStorage.getItem('mlExamProgress');
+        if (saved) {
+            const progress = JSON.parse(saved);
+            // You can implement restoration logic here if needed
+            console.log('Previous progress found:', progress);
+        }
+    }
+}
+
+// Call saveProgress whenever score updates
+const originalUpdateScore = updateScore;
+updateScore = function() {
+    originalUpdateScore();
+    saveProgress();
+};
+
+// Load progress on page load
+document.addEventListener('DOMContentLoaded', loadProgress);
