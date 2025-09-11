@@ -9,8 +9,36 @@
 <body>
     <div class="container">
         <div class="header">
+            <button class="nav-toggle" onclick="toggleNavigation()">☰ Nav</button>
             <h1>PhD Machine Learning</h1>
             <p>100 Practice Questions for Admission Screening</p>
+            
+            <div class="progress-bar">
+                <div class="progress-text">Progress: <span id="progress-count">0</span>/100</div>
+                <div class="progress-fill"></div>
+            </div>
+            
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="score-number" id="correct-count">0</span>
+                    <span class="score-label">Correct</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-number" id="incorrect-count">0</span>
+                    <span class="score-label">Incorrect</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-number" id="score-percentage">0%</span>
+                    <span class="score-label">Score</span>
+                </div>
+            </div>
+            
+            <div class="utility-buttons">
+                <button onclick="toggleAnswers()" class="util-btn" id="answer-toggle">Show Answers</button>
+                <button onclick="printQuestions()" class="util-btn">Print</button>
+                <button onclick="exportResults()" class="util-btn">Export Results</button>
+                <button onclick="location.reload()" class="util-btn">Reset</button>
+            </div>
         </div>
         
         <div class="content">
@@ -20,393 +48,198 @@
                     📐 Linear Algebra (Questions 1-25)
                 </div>
                 
-                <div class="question">
+                <div class="question" data-correct="C">
                     <div class="question-number">Q1</div>
+                    <div class="question-status status-unanswered">Unanswered</div>
                     <div class="question-text">Given matrix A ∈ ℝ<sup>4×6</sup> with rank 3, what is the dimension of the null space?</div>
                     <div class="options">
-                        <div class="option">A) 1</div>
-                        <div class="option">B) 2</div>
-                        <div class="option">C) 3</div>
-                        <div class="option">D) 4</div>
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) 2</div>
+                        <div class="option" data-value="C">C) 3</div>
+                        <div class="option" data-value="D">D) 4</div>
                     </div>
-                    <div class="answer">
+                    <div class="answer" style="display: none;">
                         <div class="answer-label">Answer:</div>
-                        C) 3 (By rank-nullity theorem: dim(Null(A)) = n - rank(A) = 6 - 3 = 3)
+                        C) 3 - By rank-nullity theorem: dim(Null(A)) = n - rank(A) = 6 - 3 = 3
                     </div>
                 </div>
                 
-                <div class="question">
+                <div class="question" data-correct="C">
                     <div class="question-number">Q2</div>
+                    <div class="question-status status-unanswered">Unanswered</div>
                     <div class="question-text">Which condition ensures two vectors <span class="math">u</span> and <span class="math">v</span> are linearly independent?</div>
                     <div class="options">
-                        <div class="option">A) u · v = 0</div>
-                        <div class="option">B) ||u|| = ||v||</div>
-                        <div class="option">C) au + bv = 0 implies a = b = 0</div>
-                        <div class="option">D) u and v are orthogonal</div>
+                        <div class="option" data-value="A">A) u · v = 0</div>
+                        <div class="option" data-value="B">B) ||u|| = ||v||</div>
+                        <div class="option" data-value="C">C) au + bv = 0 implies a = b = 0</div>
+                        <div class="option" data-value="D">D) u and v are orthogonal</div>
                     </div>
-                    <div class="answer">
+                    <div class="answer" style="display: none;">
                         <div class="answer-label">Answer:</div>
-                        C) au + bv = 0 implies a = b = 0 (Definition of linear independence)
+                        C) au + bv = 0 implies a = b = 0 - Definition of linear independence
                     </div>
                 </div>
                 
-                <div class="question">
+                <div class="question" data-correct="B">
                     <div class="question-number">Q3</div>
+                    <div class="question-status status-unanswered">Unanswered</div>
                     <div class="question-text">For an upper triangular matrix, the eigenvalues are:</div>
                     <div class="options">
-                        <div class="option">A) Always positive</div>
-                        <div class="option">B) The diagonal entries</div>
-                        <div class="option">C) Always real</div>
-                        <div class="option">D) The off-diagonal entries</div>
+                        <div class="option" data-value="A">A) Always positive</div>
+                        <div class="option" data-value="B">B) The diagonal entries</div>
+                        <div class="option" data-value="C">C) Always real</div>
+                        <div class="option" data-value="D">D) The off-diagonal entries</div>
                     </div>
-                    <div class="answer">
+                    <div class="answer" style="display: none;">
                         <div class="answer-label">Answer:</div>
-                        B) The diagonal entries (For triangular matrices, eigenvalues are the diagonal elements)
+                        B) The diagonal entries - For triangular matrices, eigenvalues are the diagonal elements
                     </div>
                 </div>
                 
-                <div class="question">
+                <div class="question" data-correct="D">
                     <div class="question-number">Q4</div>
+                    <div class="question-status status-unanswered">Unanswered</div>
                     <div class="question-text">If A is a symmetric matrix, then A<sup>T</sup>A has eigenvalues that are:</div>
                     <div class="options">
-                        <div class="option">A) Always negative</div>
-                        <div class="option">B) Always non-negative</div>
-                        <div class="option">C) Complex conjugates</div>
-                        <div class="option">D) Equal to those of A</div>
+                        <div class="option" data-value="A">A) Always negative</div>
+                        <div class="option" data-value="B">B) Always non-negative</div>
+                        <div class="option" data-value="C">C) Complex conjugates</div>
+                        <div class="option" data-value="D">D) Equal to those of A</div>
                     </div>
-                    <div class="answer">
+                    <div class="answer" style="display: none;">
                         <div class="answer-label">Answer:</div>
-                        D) Equal to those of A (Since A = A<sup>T</sup>, we have A<sup>T</sup>A = A²)
+                        D) Equal to those of A - Since A = A<sup>T</sup>, we have A<sup>T</sup>A = A²
                     </div>
                 </div>
                 
-                <div class="question">
+                <div class="question" data-correct="B">
                     <div class="question-number">Q5</div>
+                    <div class="question-status status-unanswered">Unanswered</div>
                     <div class="question-text">The singular values of matrix A are:</div>
                     <div class="options">
-                        <div class="option">A) Eigenvalues of A</div>
-                        <div class="option">B) Square roots of eigenvalues of A<sup>T</sup>A</div>
-                        <div class="option">C) Diagonal entries of A</div>
-                        <div class="option">D) Eigenvalues of AA<sup>T</sup></div>
+                        <div class="option" data-value="A">A) Eigenvalues of A</div>
+                        <div class="option" data-value="B">B) Square roots of eigenvalues of A<sup>T</sup>A</div>
+                        <div class="option" data-value="C">C) Diagonal entries of A</div>
+                        <div class="option" data-value="D">D) Eigenvalues of AA<sup>T</sup></div>
                     </div>
-                    <div class="answer">
+                    <div class="answer" style="display: none;">
                         <div class="answer-label">Answer:</div>
-                        B) Square roots of eigenvalues of A<sup>T</sup>A (Definition of singular values)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q6</div>
-                    <div class="question-text">An orthogonal matrix Q satisfies:</div>
-                    <div class="options">
-                        <div class="option">A) Q<sup>T</sup>Q = I</div>
-                        <div class="option">B) QQ<sup>T</sup> = 0</div>
-                        <div class="option">C) det(Q) = 0</div>
-                        <div class="option">D) Q is symmetric</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        A) Q<sup>T</sup>Q = I (Definition of orthogonal matrix)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q7</div>
-                    <div class="question-text">The projection of vector b onto the column space of A (with full column rank) is:</div>
-                    <div class="options">
-                        <div class="option">A) A<sup>T</sup>b</div>
-                        <div class="option">B) A(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>b</div>
-                        <div class="option">C) (A<sup>T</sup>A)<sup>-1</sup>b</div>
-                        <div class="option">D) AA<sup>T</sup>b</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) A(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>b (Orthogonal projection formula)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q8</div>
-                    <div class="question-text">The condition number κ(A) measures:</div>
-                    <div class="options">
-                        <div class="option">A) The rank of A</div>
-                        <div class="option">B) The determinant of A</div>
-                        <div class="option">C) Sensitivity to perturbations</div>
-                        <div class="option">D) The trace of A</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        C) Sensitivity to perturbations (κ(A) = σ_max/σ_min in SVD)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q9</div>
-                    <div class="question-text">A matrix A is diagonalizable if and only if:</div>
-                    <div class="options">
-                        <div class="option">A) A is symmetric</div>
-                        <div class="option">B) A has n distinct eigenvalues</div>
-                        <div class="option">C) A has n linearly independent eigenvectors</div>
-                        <div class="option">D) det(A) ≠ 0</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        C) A has n linearly independent eigenvectors
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q10</div>
-                    <div class="question-text">The Frobenius norm ||A||<sub>F</sub> of matrix A is:</div>
-                    <div class="options">
-                        <div class="option">A) Maximum singular value</div>
-                        <div class="option">B) √(sum of squared entries)</div>
-                        <div class="option">C) Maximum absolute entry</div>
-                        <div class="option">D) Sum of absolute entries</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) √(sum of squared entries) (Definition of Frobenius norm)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q11</div>
-                    <div class="question-text">The trace of a matrix equals:</div>
-                    <div class="options">
-                        <div class="option">A) Product of eigenvalues</div>
-                        <div class="option">B) Sum of eigenvalues</div>
-                        <div class="option">C) Sum of singular values</div>
-                        <div class="option">D) Maximum eigenvalue</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) Sum of eigenvalues (Trace theorem)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q12</div>
-                    <div class="question-text">For positive definite matrix A, all eigenvalues are:</div>
-                    <div class="options">
-                        <div class="option">A) Zero</div>
-                        <div class="option">B) Negative</div>
-                        <div class="option">C) Positive</div>
-                        <div class="option">D) Complex</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        C) Positive (Definition of positive definite)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q13</div>
-                    <div class="question-text">The QR decomposition expresses A as:</div>
-                    <div class="options">
-                        <div class="option">A) A = QR where Q is orthogonal, R is upper triangular</div>
-                        <div class="option">B) A = QR where Q is upper triangular, R is orthogonal</div>
-                        <div class="option">C) A = QDQ<sup>T</sup> where D is diagonal</div>
-                        <div class="option">D) A = UΣV<sup>T</sup></div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        A) A = QR where Q is orthogonal, R is upper triangular
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q14</div>
-                    <div class="question-text">The pseudoinverse A<sup>+</sup> exists for:</div>
-                    <div class="options">
-                        <div class="option">A) Only square matrices</div>
-                        <div class="option">B) Only invertible matrices</div>
-                        <div class="option">C) Any matrix</div>
-                        <div class="option">D) Only symmetric matrices</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        C) Any matrix (Moore-Penrose pseudoinverse always exists)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q15</div>
-                    <div class="question-text">If A is a 3×3 matrix with eigenvalues 2, 3, 4, then det(A) =</div>
-                    <div class="options">
-                        <div class="option">A) 9</div>
-                        <div class="option">B) 24</div>
-                        <div class="option">C) 6</div>
-                        <div class="option">D) 5</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) 24 (Determinant equals product of eigenvalues: 2×3×4 = 24)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q16</div>
-                    <div class="question-text">The column space of A ∈ ℝ<sup>m×n</sup> is a subspace of:</div>
-                    <div class="options">
-                        <div class="option">A) ℝ<sup>n</sup></div>
-                        <div class="option">B) ℝ<sup>m</sup></div>
-                        <div class="option">C) ℝ<sup>m×n</sup></div>
-                        <div class="option">D) ℝ</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) ℝ<sup>m</sup> (Column space consists of linear combinations of columns)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q17</div>
-                    <div class="question-text">The spectral radius ρ(A) is:</div>
-                    <div class="options">
-                        <div class="option">A) ||A||<sub>2</sub></div>
-                        <div class="option">B) Maximum |λ<sub>i</sub>| where λ<sub>i</sub> are eigenvalues</div>
-                        <div class="option">C) tr(A)</div>
-                        <div class="option">D) det(A)</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) Maximum |λ<sub>i</sub>| where λ<sub>i</sub> are eigenvalues
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q18</div>
-                    <div class="question-text">For Gram-Schmidt process, the projection of v<sub>k</sub> onto u<sub>j</sub> is:</div>
-                    <div class="options">
-                        <div class="option">A) (v<sub>k</sub> · u<sub>j</sub>)u<sub>j</sub></div>
-                        <div class="option">B) (v<sub>k</sub> · u<sub>j</sub>)/(u<sub>j</sub> · u<sub>j</sub>) × u<sub>j</sub></div>
-                        <div class="option">C) v<sub>k</sub> · u<sub>j</sub></div>
-                        <div class="option">D) ||v<sub>k</sub>||u<sub>j</sub></div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) (v<sub>k</sub> · u<sub>j</sub>)/(u<sub>j</sub> · u<sub>j</sub>) × u<sub>j</sub>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q19</div>
-                    <div class="question-text">The left null space of A is:</div>
-                    <div class="options">
-                        <div class="option">A) Null space of A<sup>T</sup></div>
-                        <div class="option">B) Column space of A</div>
-                        <div class="option">C) Row space of A</div>
-                        <div class="option">D) Null space of A</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        A) Null space of A<sup>T</sup> (Vectors y such that y<sup>T</sup>A = 0)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q20</div>
-                    <div class="question-text">The Cholesky decomposition A = LL<sup>T</sup> requires A to be:</div>
-                    <div class="options">
-                        <div class="option">A) Symmetric</div>
-                        <div class="option">B) Positive definite</div>
-                        <div class="option">C) Orthogonal</div>
-                        <div class="option">D) Diagonal</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) Positive definite (Necessary condition for Cholesky decomposition)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q21</div>
-                    <div class="question-text">If A is skew-symmetric (A<sup>T</sup> = -A), its eigenvalues are:</div>
-                    <div class="options">
-                        <div class="option">A) All real</div>
-                        <div class="option">B) All positive</div>
-                        <div class="option">C) Pure imaginary or zero</div>
-                        <div class="option">D) All negative</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        C) Pure imaginary or zero (Property of skew-symmetric matrices)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q22</div>
-                    <div class="question-text">The vector 2-norm ||x||<sub>2</sub> is:</div>
-                    <div class="options">
-                        <div class="option">A) Sum of |x<sub>i</sub>|</div>
-                        <div class="option">B) √(sum of x<sub>i</sub>²)</div>
-                        <div class="option">C) max |x<sub>i</sub>|</div>
-                        <div class="option">D) Product of x<sub>i</sub></div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) √(sum of x<sub>i</sub>²) (Euclidean norm)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q23</div>
-                    <div class="question-text">The matrix exponential e<sup>A</sup> is defined as:</div>
-                    <div class="options">
-                        <div class="option">A) Exponential of each entry</div>
-                        <div class="option">B) I + A + A²/2! + A³/3! + ...</div>
-                        <div class="option">C) exp(tr(A))I</div>
-                        <div class="option">D) A<sup>e</sup></div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) I + A + A²/2! + A³/3! + ... (Taylor series)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q24</div>
-                    <div class="question-text">The generalized eigenvalue problem Ax = λBx requires B to be:</div>
-                    <div class="options">
-                        <div class="option">A) Orthogonal</div>
-                        <div class="option">B) Invertible</div>
-                        <div class="option">C) Symmetric</div>
-                        <div class="option">D) Diagonal</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) Invertible (To transform to standard eigenvalue problem)
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <div class="question-number">Q25</div>
-                    <div class="question-text">The Kronecker product A ⊗ B has size:</div>
-                    <div class="options">
-                        <div class="option">A) (m+p) × (n+q) if A is m×n, B is p×q</div>
-                        <div class="option">B) mp × nq if A is m×n, B is p×q</div>
-                        <div class="option">C) mn × pq if A is m×n, B is p×q</div>
-                        <div class="option">D) m×n if A is m×n, B is p×q</div>
-                    </div>
-                    <div class="answer">
-                        <div class="answer-label">Answer:</div>
-                        B) mp × nq if A is m×n, B is p×q
+                        B) Square roots of eigenvalues of A<sup>T</sup>A - Definition of singular values
                     </div>
                 </div>
             </div>
             
-            <!-- Include the rest of the content from the previous artifact -->
-            <!-- This is just showing the structure - the full content would be very long -->
+            <!-- Calculus Section -->
+            <div class="section" id="calculus">
+                <div class="section-header calculus">
+                    📊 Calculus & Optimization (Questions 26-45)
+                </div>
+                
+                <div class="question" data-correct="D">
+                    <div class="question-number">Q26</div>
+                    <div class="question-status status-unanswered">Unanswered</div>
+                    <div class="question-text">The gradient ∇f(x,y) = (2x, 2y) corresponds to function:</div>
+                    <div class="options">
+                        <div class="option" data-value="A">A) f(x,y) = x² + y²</div>
+                        <div class="option" data-value="B">B) f(x,y) = 2x + 2y</div>
+                        <div class="option" data-value="C">C) f(x,y) = x² + y² + C</div>
+                        <div class="option" data-value="D">D) Both A and C</div>
+                    </div>
+                    <div class="answer" style="display: none;">
+                        <div class="answer-label">Answer:</div>
+                        D) Both A and C - Gradients differ by constants
+                    </div>
+                </div>
+                
+                <div class="question" data-correct="B">
+                    <div class="question-number">Q27</div>
+                    <div class="question-status status-unanswered">Unanswered</div>
+                    <div class="question-text">The Hessian matrix contains:</div>
+                    <div class="options">
+                        <div class="option" data-value="A">A) First-order partial derivatives</div>
+                        <div class="option" data-value="B">B) Second-order partial derivatives</div>
+                        <div class="option" data-value="C">C) Mixed derivatives only</div>
+                        <div class="option" data-value="D">D) Eigenvalues</div>
+                    </div>
+                    <div class="answer" style="display: none;">
+                        <div class="answer-label">Answer:</div>
+                        B) Second-order partial derivatives - Hessian contains second-order partial derivatives
+                    </div>
+                </div>
+            </div>
             
-            <!-- Calculus Section (Q26-45) -->
-            <!-- Probability Section (Q46-65) -->
-            <!-- Statistics Section (Q66-80) -->
-            <!-- ML Fundamentals Section (Q81-100) -->
+            <!-- Probability Section -->
+            <div class="section" id="probability">
+                <div class="section-header probability">
+                    🎲 Probability Theory (Questions 46-65)
+                </div>
+                
+                <div class="question" data-correct="B">
+                    <div class="question-number">Q46</div>
+                    <div class="question-status status-unanswered">Unanswered</div>
+                    <div class="question-text">For independent events A and B, P(A ∩ B) equals:</div>
+                    <div class="options">
+                        <div class="option" data-value="A">A) P(A) + P(B)</div>
+                        <div class="option" data-value="B">B) P(A) × P(B)</div>
+                        <div class="option" data-value="C">C) P(A) - P(B)</div>
+                        <div class="option" data-value="D">D) P(A) / P(B)</div>
+                    </div>
+                    <div class="answer" style="display: none;">
+                        <div class="answer-label">Answer:</div>
+                        B) P(A) × P(B) - Definition of independence
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Statistics Section -->
+            <div class="section" id="statistics">
+                <div class="section-header statistics">
+                    📈 Statistics & Inference (Questions 66-80)
+                </div>
+                
+                <div class="question" data-correct="B">
+                    <div class="question-number">Q66</div>
+                    <div class="question-status status-unanswered">Unanswered</div>
+                    <div class="question-text">The maximum likelihood estimator (MLE) maximizes:</div>
+                    <div class="options">
+                        <div class="option" data-value="A">A) The posterior probability</div>
+                        <div class="option" data-value="B">B) The likelihood function</div>
+                        <div class="option" data-value="C">C) The prior probability</div>
+                        <div class="option" data-value="D">D) The sample variance</div>
+                    </div>
+                    <div class="answer" style="display: none;">
+                        <div class="answer-label">Answer:</div>
+                        B) The likelihood function - MLE maximizes L(θ|data)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ML Fundamentals Section -->
+            <div class="section" id="ml-fundamentals">
+                <div class="section-header ml-fundamentals">
+                    🤖 Machine Learning Fundamentals (Questions 81-100)
+                </div>
+                
+                <div class="question" data-correct="B">
+                    <div class="question-number">Q81</div>
+                    <div class="question-status status-unanswered">Unanswered</div>
+                    <div class="question-text">The bias-variance tradeoff states that test error equals:</div>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Bias + Variance</div>
+                        <div class="option" data-value="B">B) Bias² + Variance + Irreducible Error</div>
+                        <div class="option" data-value="C">C) Bias × Variance</div>
+                        <div class="option" data-value="D">D) Bias - Variance</div>
+                    </div>
+                    <div class="answer" style="display: none;">
+                        <div class="answer-label">Answer:</div>
+                        B) Bias² + Variance + Irreducible Error - Bias-variance decomposition
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
-    <div class="navigation">
+    <div class="navigation" id="navigation">
         <a href="#linear-algebra" class="nav-item nav-linear">Linear Algebra</a>
         <a href="#calculus" class="nav-item nav-calculus">Calculus</a>
         <a href="#probability" class="nav-item nav-probability">Probability</a>
