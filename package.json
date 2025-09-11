@@ -1,14 +1,18 @@
 {
   "name": "ml-phd-exam-questions",
-  "version": "1.0.0",
-  "description": "100 practice questions for PhD Machine Learning admission screening",
+  "version": "2.0.0",
+  "description": "Enhanced PhD Machine Learning practice exam with scoring, hidden answers, and navigation controls",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve .",
-    "dev": "npx live-server .",
+    "start": "npx serve . -p 3000",
+    "dev": "npx live-server . --port=3000",
     "build": "echo 'Static site - no build process needed'",
     "test": "echo 'No tests specified'",
-    "validate": "npx html-validate index.html"
+    "validate": "npx html-validate index.html",
+    "lint:css": "npx stylelint styles.css",
+    "lint:js": "npx eslint script.js",
+    "deploy": "gh-pages -d .",
+    "preview": "npx serve . -p 8080"
   },
   "keywords": [
     "machine-learning",
@@ -19,21 +23,52 @@
     "calculus",
     "probability",
     "statistics",
-    "ml-fundamentals"
+    "ml-fundamentals",
+    "scoring-system",
+    "interactive-exam",
+    "education"
   ],
-  "author": "Your Name",
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "url": "https://github.com/yourusername"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Minaaziz2/ml-phd-exam-questions.git"
   },
   "homepage": "https://Minaaziz2.github.io/ml-phd-exam-questions/",
+  "bugs": {
+    "url": "https://github.com/Minaaziz2/ml-phd-exam-questions/issues"
+  },
   "devDependencies": {
     "serve": "^14.0.0",
     "live-server": "^1.2.2",
-    "html-validate": "^8.0.0"
+    "html-validate": "^8.0.0",
+    "stylelint": "^15.0.0",
+    "eslint": "^8.0.0",
+    "gh-pages": "^6.0.0"
   },
   "engines": {
-    "node": ">=14.0.0"
-  }
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "features": [
+    "Interactive scoring system",
+    "Hide/show answers functionality", 
+    "Collapsible navigation sidebar",
+    "Progress tracking",
+    "Keyboard shortcuts",
+    "Export results to JSON",
+    "Print-friendly layout",
+    "Responsive design",
+    "Local storage for progress",
+    "Performance optimizations"
+  ]
 }
