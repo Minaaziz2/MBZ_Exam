@@ -1,104 +1,162 @@
 {
+  "metadata": {
+    "title": "PhD Machine Learning - 100 Practice Questions",
+    "version": "2.0.0",
+    "description": "Comprehensive practice questions for PhD Machine Learning admission screening",
+    "totalQuestions": 100,
+    "lastUpdated": "2024-01-15"
+  },
   "sections": [
     {
       "id": "linear-algebra",
       "title": "Linear Algebra",
+      "description": "Matrix operations, eigenvalues, SVD, decompositions",
+      "questionRange": "1-25",
       "questions": [
         {
           "id": 1,
           "text": "Given matrix A ∈ ℝ^(4×6) with rank 3, what is the dimension of the null space?",
           "options": ["A) 1", "B) 2", "C) 3", "D) 4"],
           "correct": "C",
-          "explanation": "By rank-nullity theorem: dim(Null(A)) = n - rank(A) = 6 - 3 = 3"
+          "explanation": "By rank-nullity theorem: dim(Null(A)) = n - rank(A) = 6 - 3 = 3",
+          "difficulty": "intermediate",
+          "topics": ["rank-nullity theorem", "null space", "matrix dimensions"]
         },
         {
           "id": 2,
           "text": "Which condition ensures two vectors u and v are linearly independent?",
           "options": ["A) u · v = 0", "B) ||u|| = ||v||", "C) au + bv = 0 implies a = b = 0", "D) u and v are orthogonal"],
           "correct": "C",
-          "explanation": "Definition of linear independence"
+          "explanation": "Definition of linear independence",
+          "difficulty": "basic",
+          "topics": ["linear independence", "vectors", "definition"]
         },
         {
           "id": 3,
           "text": "For an upper triangular matrix, the eigenvalues are:",
           "options": ["A) Always positive", "B) The diagonal entries", "C) Always real", "D) The off-diagonal entries"],
           "correct": "B",
-          "explanation": "For triangular matrices, eigenvalues are the diagonal elements"
+          "explanation": "For triangular matrices, eigenvalues are the diagonal elements",
+          "difficulty": "intermediate",
+          "topics": ["eigenvalues", "triangular matrix", "diagonal entries"]
         },
         {
           "id": 4,
           "text": "If A is a symmetric matrix, then A^T A has eigenvalues that are:",
           "options": ["A) Always negative", "B) Always non-negative", "C) Complex conjugates", "D) Equal to those of A"],
           "correct": "D",
-          "explanation": "Since A = A^T, we have A^T A = A²"
+          "explanation": "Since A = A^T, we have A^T A = A²",
+          "difficulty": "intermediate",
+          "topics": ["symmetric matrix", "eigenvalues", "matrix multiplication"]
         },
         {
           "id": 5,
           "text": "The singular values of matrix A are:",
           "options": ["A) Eigenvalues of A", "B) Square roots of eigenvalues of A^T A", "C) Diagonal entries of A", "D) Eigenvalues of AA^T"],
           "correct": "B",
-          "explanation": "Definition of singular values"
+          "explanation": "Definition of singular values",
+          "difficulty": "intermediate",
+          "topics": ["singular values", "SVD", "eigenvalues"]
         }
       ]
     },
     {
       "id": "calculus",
       "title": "Calculus & Optimization",
+      "description": "Gradients, Hessians, optimization methods",
+      "questionRange": "26-45",
       "questions": [
         {
           "id": 26,
           "text": "The gradient ∇f(x,y) = (2x, 2y) corresponds to function:",
           "options": ["A) f(x,y) = x² + y²", "B) f(x,y) = 2x + 2y", "C) f(x,y) = x² + y² + C", "D) Both A and C"],
           "correct": "D",
-          "explanation": "Gradients differ by constants"
+          "explanation": "Gradients differ by constants",
+          "difficulty": "basic",
+          "topics": ["gradient", "partial derivatives", "constants"]
         },
         {
           "id": 27,
           "text": "The Hessian matrix contains:",
           "options": ["A) First-order partial derivatives", "B) Second-order partial derivatives", "C) Mixed derivatives only", "D) Eigenvalues"],
           "correct": "B",
-          "explanation": "Hessian contains second-order partial derivatives"
+          "explanation": "Hessian contains second-order partial derivatives",
+          "difficulty": "basic",
+          "topics": ["Hessian matrix", "second derivatives", "optimization"]
         }
       ]
     },
     {
       "id": "probability",
       "title": "Probability Theory",
+      "description": "Distributions, Bayes' theorem, random variables",
+      "questionRange": "46-65",
       "questions": [
         {
           "id": 46,
           "text": "For independent events A and B, P(A ∩ B) equals:",
           "options": ["A) P(A) + P(B)", "B) P(A) × P(B)", "C) P(A) - P(B)", "D) P(A) / P(B)"],
           "correct": "B",
-          "explanation": "Definition of independence"
+          "explanation": "Definition of independence",
+          "difficulty": "basic",
+          "topics": ["independence", "probability", "intersection"]
         }
       ]
     },
     {
       "id": "statistics",
-      "title": "Statistics & Inference", 
+      "title": "Statistics & Inference",
+      "description": "MLE, hypothesis testing, confidence intervals",
+      "questionRange": "66-80",
       "questions": [
         {
           "id": 66,
           "text": "The maximum likelihood estimator (MLE) maximizes:",
           "options": ["A) The posterior probability", "B) The likelihood function", "C) The prior probability", "D) The sample variance"],
           "correct": "B",
-          "explanation": "MLE maximizes L(θ|data)"
+          "explanation": "MLE maximizes L(θ|data)",
+          "difficulty": "intermediate",
+          "topics": ["MLE", "likelihood", "estimation"]
         }
       ]
     },
     {
       "id": "ml-fundamentals",
       "title": "Machine Learning Fundamentals",
+      "description": "Bias-variance, algorithms, evaluation",
+      "questionRange": "81-100",
       "questions": [
         {
           "id": 81,
           "text": "The bias-variance tradeoff states that test error equals:",
           "options": ["A) Bias + Variance", "B) Bias² + Variance + Irreducible Error", "C) Bias × Variance", "D) Bias - Variance"],
           "correct": "B",
-          "explanation": "Bias-variance decomposition"
+          "explanation": "Bias-variance decomposition",
+          "difficulty": "intermediate",
+          "topics": ["bias-variance", "test error", "decomposition"]
         }
       ]
     }
-  ]
+  ],
+  "answerKey": {
+    "1": "C", "2": "C", "3": "B", "4": "D", "5": "B",
+    "26": "D", "27": "B",
+    "46": "B",
+    "66": "B",
+    "81": "B"
+  },
+  "statistics": {
+    "difficultyDistribution": {
+      "basic": 4,
+      "intermediate": 6,
+      "advanced": 0
+    },
+    "topicCoverage": {
+      "linear-algebra": 5,
+      "calculus": 2,
+      "probability": 1,
+      "statistics": 1,
+      "ml-fundamentals": 1
+    }
+  }
 }
