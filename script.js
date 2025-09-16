@@ -94,7 +94,8 @@ async function loadQuestions() {
     });
 
     totalQuestions = qCount;
-    document.querySelector('.progress-text').innerHTML = `Progress: <span id="progress-count">0</span>/${totalQuestions}`;
+    const pt = document.querySelector('.progress-text');
+    if (pt) pt.innerHTML = `Progress: <span id="progress-count">0</span>/${totalQuestions}`;
   } catch (e) {
     console.error(e);
     const content = document.getElementById('content');
@@ -177,16 +178,19 @@ function handleOptionClick(clickedOption) {
 // Progress/score UI
 function updateProgress() {
   const pct = totalQuestions ? (answeredQuestions / totalQuestions) * 100 : 0;
-  document.querySelector('#progress-count').textContent = answeredQuestions;
+  const pc = document.querySelector('#progress-count');
+  if (pc) pc.textContent = answeredQuestions;
   const fill = document.querySelector('.progress-fill');
   if (fill) fill.style.width = pct + '%';
 }
 
 function updateScore() {
-  document.querySelector('#correct-count').textContent = correctAnswers;
-  document.querySelector('#incorrect-count').textContent = incorrectAnswers;
-  const scorePct = answeredQuestions ? Math.round((correctAnswers / answeredQuestions) * 100) : 0;
-  document.querySelector('#score-percentage').textContent = scorePct + '%';
+  const c = document.querySelector('#correct-count');
+  const i = document.querySelector('#incorrect-count');
+  const s = document.querySelector('#score-percentage');
+  if (c) c.textContent = correctAnswers;
+  if (i) i.textContent = incorrectAnswers;
+  if (s) s.textContent = (answeredQuestions ? Math.round((correctAnswers / answeredQuestions) * 100) : 0) + '%';
   saveProgress();
 }
 
@@ -293,7 +297,9 @@ function updateNavigationIndicator() {
   let current = '';
   sections.forEach(section => {
     const rect = section.getBoundingClientRect();
-    if (rect.top <= 100) current = section.getAttribute('id');
+    if (rect.top <= 100 && rect.bottom > 100) {
+      current = section.getAttribute('id');
+    }
   });
   navItems.forEach(item => {
     item.classList.remove('active');
