@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhD Machine Learning - 100 Practice Questions</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <button class="nav-toggle" onclick="toggleNavigation()">☰ Nav</button>
+      <h1>PhD Machine Learning</h1>
+      <p>100 Practice Questions for Admission Screening</p>
+
+      <div class="progress-bar">
+        <div class="progress-text">Progress: <span id="progress-count">0</span>/100</div>
+        <div class="progress-fill"></div>
+      </div>
+
+      <div class="score-board">
+        <div class="score-item">
+          <span class="score-number" id="correct-count">0</span>
+          <span class="score-label">Correct</span>
+        </div>
+        <div class="score-item">
+          <span class="score-number" id="incorrect-count">0</span>
+          <span class="score-label">Incorrect</span>
+        </div>
+        <div class="score-item">
+          <span class="score-number" id="score-percentage">0%</span>
+          <span class="score-label">Score</span>
+        </div>
+      </div>
+
+      <div class="utility-buttons">
+        <button onclick="toggleAnswers()" class="util-btn" id="answer-toggle">Show Answers</button>
+        <button onclick="printQuestions()" class="util-btn">Print</button>
+        <button onclick="exportResults()" class="util-btn">Export Results</button>
+        <button onclick="location.reload()" class="util-btn">Reset</button>
+      </div>
+    </div>
+
+    <div class="content" id="content">
+      <!-- Sections and questions will be injected dynamically -->
+    </div>
+  </div>
+
+  <div class="navigation" id="navigation">
+    <a href="#linear-algebra" class="nav-item nav-linear">Linear Algebra</a>
+    <a href="#calculus" class="nav-item nav-calculus">Calculus</a>
+    <a href="#probability" class="nav-item nav-probability">Probability</a>
+    <a href="#statistics" class="nav-item nav-statistics">Statistics</a>
+    <a href="#ml-fundamentals" class="nav-item nav-ml">ML Fundamentals</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

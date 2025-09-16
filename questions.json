@@ -1,0 +1,1639 @@
+{
+  "metadata": {
+    "title": "PhD Machine Learning - 100 Practice Questions",
+    "version": "3.0.0",
+    "description": "Comprehensive practice questions for PhD Machine Learning admission screening",
+    "totalQuestions": 100,
+    "lastUpdated": "2025-09-16"
+  },
+  "sections": [
+    {
+      "id": "linear-algebra",
+      "title": "Linear Algebra",
+      "description": "Matrix operations, eigenvalues, SVD, decompositions",
+      "questionRange": "1-25",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Given matrix A ∈ ℝ^(4×6) with rank 3, what is the dimension of the null space?",
+          "options": [
+            "A) 1",
+            "B) 2",
+            "C) 3",
+            "D) 4"
+          ],
+          "correct": "C",
+          "explanation": "Rank–nullity: nullity = n − rank = 6 − 3 = 3.",
+          "difficulty": "basic",
+          "topics": [
+            "rank-nullity",
+            "null space"
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Which condition ensures two vectors u and v are linearly independent?",
+          "options": [
+            "A) u · v = 0",
+            "B) ||u|| = ||v||",
+            "C) au + bv = 0 implies a = b = 0",
+            "D) u and v are orthogonal"
+          ],
+          "correct": "C",
+          "explanation": "Definition of linear independence.",
+          "difficulty": "basic",
+          "topics": [
+            "linear independence"
+          ]
+        },
+        {
+          "id": 3,
+          "text": "For an upper triangular matrix, the eigenvalues are:",
+          "options": [
+            "A) Always positive",
+            "B) The diagonal entries",
+            "C) Always real",
+            "D) The off-diagonal entries"
+          ],
+          "correct": "B",
+          "explanation": "Eigenvalues of a triangular matrix are its diagonal entries.",
+          "difficulty": "basic",
+          "topics": [
+            "eigenvalues",
+            "triangular"
+          ]
+        },
+        {
+          "id": 4,
+          "text": "If Q is orthogonal (QᵀQ = I), then:",
+          "options": [
+            "A) det(Q) = 0",
+            "B) Columns of Q are orthonormal",
+            "C) Q is always symmetric",
+            "D) Q has complex eigenvalues only"
+          ],
+          "correct": "B",
+          "explanation": "Orthogonal matrices have orthonormal columns and |det(Q)|=1.",
+          "difficulty": "basic",
+          "topics": [
+            "orthogonal",
+            "orthonormal"
+          ]
+        },
+        {
+          "id": 5,
+          "text": "The singular values of A are:",
+          "options": [
+            "A) Eigenvalues of A",
+            "B) √(eigenvalues of AᵀA)",
+            "C) Diagonal entries of A",
+            "D) Eigenvalues of AAᵀ only"
+          ],
+          "correct": "B",
+          "explanation": "Definition of singular values via SVD.",
+          "difficulty": "basic",
+          "topics": [
+            "SVD",
+            "singular values"
+          ]
+        },
+        {
+          "id": 6,
+          "text": "If A ∈ ℝ^(n×n) is invertible, then:",
+          "options": [
+            "A) rank(A) = n",
+            "B) det(A) = 0",
+            "C) Null(A) ≠ {0}",
+            "D) Columns are linearly dependent"
+          ],
+          "correct": "A",
+          "explanation": "Invertible ⇔ full rank ⇔ trivial null space.",
+          "difficulty": "basic",
+          "topics": [
+            "invertibility",
+            "rank"
+          ]
+        },
+        {
+          "id": 7,
+          "text": "Projection of a vector y onto the column space of X (full column rank) is:",
+          "options": [
+            "A) X(XᵀX)⁻¹y",
+            "B) X(XᵀX)⁻¹Xᵀy",
+            "C) (XᵀX)⁻¹Xᵀy",
+            "D) Xᵀ(XXᵀ)⁻¹y"
+          ],
+          "correct": "B",
+          "explanation": "Hat matrix: P = X(XᵀX)⁻¹Xᵀ; Py is the projection.",
+          "difficulty": "intermediate",
+          "topics": [
+            "projection",
+            "least squares"
+          ]
+        },
+        {
+          "id": 8,
+          "text": "If A is positive definite, then for all nonzero x:",
+          "options": [
+            "A) xᵀAx < 0",
+            "B) xᵀAx = 0",
+            "C) xᵀAx > 0",
+            "D) det(A) ≤ 0"
+          ],
+          "correct": "C",
+          "explanation": "Definition of positive definiteness.",
+          "difficulty": "basic",
+          "topics": [
+            "PD matrices"
+          ]
+        },
+        {
+          "id": 9,
+          "text": "The rank of A equals the number of:",
+          "options": [
+            "A) Nonzero rows after any row operations",
+            "B) Pivots in its row-echelon form",
+            "C) Eigenvalues",
+            "D) Columns"
+          ],
+          "correct": "B",
+          "explanation": "Rank equals number of pivots.",
+          "difficulty": "basic",
+          "topics": [
+            "rank",
+            "row-echelon"
+          ]
+        },
+        {
+          "id": 10,
+          "text": "If A has eigen-decomposition A = VΛV⁻¹ with distinct eigenvalues, then V’s columns are:",
+          "options": [
+            "A) Arbitrary",
+            "B) Orthonormal",
+            "C) Linearly independent eigenvectors",
+            "D) Equal to rows of A"
+          ],
+          "correct": "C",
+          "explanation": "Distinct eigenvalues ⇒ independent eigenvectors.",
+          "difficulty": "intermediate",
+          "topics": [
+            "eigendecomposition"
+          ]
+        },
+        {
+          "id": 11,
+          "text": "det(AB) for square A,B equals:",
+          "options": [
+            "A) det(A)+det(B)",
+            "B) det(A)det(B)",
+            "C) 0",
+            "D) det(A)/det(B)"
+          ],
+          "correct": "B",
+          "explanation": "Multiplicativity of determinant.",
+          "difficulty": "basic",
+          "topics": [
+            "determinant"
+          ]
+        },
+        {
+          "id": 12,
+          "text": "If A is symmetric, its eigenvectors associated with distinct eigenvalues are:",
+          "options": [
+            "A) Arbitrary",
+            "B) Orthogonal",
+            "C) Complex",
+            "D) Linearly dependent"
+          ],
+          "correct": "B",
+          "explanation": "Spectral theorem.",
+          "difficulty": "basic",
+          "topics": [
+            "symmetric",
+            "spectral theorem"
+          ]
+        },
+        {
+          "id": 13,
+          "text": "Moore–Penrose pseudoinverse A⁺ for full column-rank A (m≥n) is:",
+          "options": [
+            "A) (AAᵀ)⁻¹Aᵀ",
+            "B) Aᵀ(AAᵀ)⁻¹",
+            "C) (AᵀA)⁻¹Aᵀ",
+            "D) Aᵀ(AᵀA)⁻¹"
+          ],
+          "correct": "C",
+          "explanation": "Closed-form for full column-rank.",
+          "difficulty": "intermediate",
+          "topics": [
+            "pseudoinverse"
+          ]
+        },
+        {
+          "id": 14,
+          "text": "If A is diagonalizable with A = PDP⁻¹, then A^k equals:",
+          "options": [
+            "A) PkDkP⁻k",
+            "B) PDkP⁻¹",
+            "C) Dk",
+            "D) P⁻¹DkP"
+          ],
+          "correct": "B",
+          "explanation": "Power via eigen decomposition.",
+          "difficulty": "intermediate",
+          "topics": [
+            "powers of matrices"
+          ]
+        },
+        {
+          "id": 15,
+          "text": "If x,y ∈ ℝⁿ and ||·||₂ is the Euclidean norm, Cauchy–Schwarz says:",
+          "options": [
+            "A) |xᵀy| ≤ ||x||₂ + ||y||₂",
+            "B) |xᵀy| ≥ ||x||₂||y||₂",
+            "C) |xᵀy| ≤ ||x||₂||y||₂",
+            "D) xᵀy = 0"
+          ],
+          "correct": "C",
+          "explanation": "Classic inequality.",
+          "difficulty": "basic",
+          "topics": [
+            "Cauchy–Schwarz"
+          ]
+        },
+        {
+          "id": 16,
+          "text": "Trace tr(AB) equals:",
+          "options": [
+            "A) tr(A)tr(B)",
+            "B) tr(BA)",
+            "C) det(AB)",
+            "D) 0"
+          ],
+          "correct": "B",
+          "explanation": "Cyclic property of trace.",
+          "difficulty": "basic",
+          "topics": [
+            "trace"
+          ]
+        },
+        {
+          "id": 17,
+          "text": "SVD of A (m×n): A = UΣVᵀ. Columns of U and V are:",
+          "options": [
+            "A) Arbitrary",
+            "B) Orthonormal",
+            "C) Orthonormal only if A is orthogonal",
+            "D) Equal"
+          ],
+          "correct": "B",
+          "explanation": "U,V are orthonormal bases.",
+          "difficulty": "basic",
+          "topics": [
+            "SVD"
+          ]
+        },
+        {
+          "id": 18,
+          "text": "If A is rank-deficient, least-squares solution x̂ minimizing ||Ax−b||₂ is:",
+          "options": [
+            "A) Unique always",
+            "B) Any solution to Ax=b",
+            "C) x̂ = A⁺b",
+            "D) x̂ = (AᵀA)Aᵀb"
+          ],
+          "correct": "C",
+          "explanation": "Use pseudoinverse.",
+          "difficulty": "intermediate",
+          "topics": [
+            "least squares",
+            "pseudoinverse"
+          ]
+        },
+        {
+          "id": 19,
+          "text": "The spectral norm ||A||₂ equals:",
+          "options": [
+            "A) max singular value",
+            "B) min singular value",
+            "C) Frobenius norm",
+            "D) 1/cond(A)"
+          ],
+          "correct": "A",
+          "explanation": "Operator 2-norm is σ_max.",
+          "difficulty": "intermediate",
+          "topics": [
+            "norms",
+            "singular values"
+          ]
+        },
+        {
+          "id": 20,
+          "text": "If A is idempotent (A² = A), then eigenvalues are:",
+          "options": [
+            "A) Only 0",
+            "B) Only 1",
+            "C) Only 0 or 1",
+            "D) Any real number"
+          ],
+          "correct": "C",
+          "explanation": "Eigenvalues of projectors are 0 or 1.",
+          "difficulty": "intermediate",
+          "topics": [
+            "projectors"
+          ]
+        },
+        {
+          "id": 21,
+          "text": "Gershgorin circle theorem provides bounds on:",
+          "options": [
+            "A) Rank",
+            "B) Determinant",
+            "C) Eigenvalues",
+            "D) Trace"
+          ],
+          "correct": "C",
+          "explanation": "Eigenvalue localization.",
+          "difficulty": "advanced",
+          "topics": [
+            "Gershgorin"
+          ]
+        },
+        {
+          "id": 22,
+          "text": "If A is symmetric positive definite, Cholesky factorization writes A as:",
+          "options": [
+            "A) LDLᵀ with D diagonal ±1",
+            "B) LLᵀ with L lower-triangular",
+            "C) QR",
+            "D) SVD"
+          ],
+          "correct": "B",
+          "explanation": "Cholesky for SPD matrices.",
+          "difficulty": "intermediate",
+          "topics": [
+            "Cholesky"
+          ]
+        },
+        {
+          "id": 23,
+          "text": "QR factorization decomposes A into:",
+          "options": [
+            "A) Q orthogonal, R upper-triangular",
+            "B) Q unit lower, R diagonal",
+            "C) Q diagonal, R diagonal",
+            "D) Q symmetric, R skew"
+          ],
+          "correct": "A",
+          "explanation": "Classic QR.",
+          "difficulty": "basic",
+          "topics": [
+            "QR"
+          ]
+        },
+        {
+          "id": 24,
+          "text": "If columns of A are orthonormal, then AᵀA =",
+          "options": [
+            "A) 0",
+            "B) I",
+            "C) A",
+            "D) diag(A)"
+          ],
+          "correct": "B",
+          "explanation": "Orthonormal columns ⇒ AᵀA = I.",
+          "difficulty": "basic",
+          "topics": [
+            "orthonormal"
+          ]
+        },
+        {
+          "id": 25,
+          "text": "Condition number κ₂(A) equals:",
+          "options": [
+            "A) σ_min/σ_max",
+            "B) σ_max/σ_min",
+            "C) det(A)",
+            "D) tr(A)"
+          ],
+          "correct": "B",
+          "explanation": "κ₂ = σ_max/σ_min for invertible A.",
+          "difficulty": "intermediate",
+          "topics": [
+            "conditioning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus",
+      "title": "Calculus & Optimization",
+      "description": "Gradients, Hessians, optimization methods",
+      "questionRange": "26-45",
+      "questions": [
+        {
+          "id": 26,
+          "text": "∇f(x,y) = (2x,2y) corresponds to:",
+          "options": [
+            "A) x²+y²",
+            "B) 2x+2y",
+            "C) x²+y²+C",
+            "D) Both A and C"
+          ],
+          "correct": "D",
+          "explanation": "Functions differing by a constant share the same gradient.",
+          "difficulty": "basic",
+          "topics": [
+            "gradient"
+          ]
+        },
+        {
+          "id": 27,
+          "text": "The Hessian matrix contains:",
+          "options": [
+            "A) First-order partials",
+            "B) Second-order partials",
+            "C) Mixed derivatives only",
+            "D) Eigenvalues"
+          ],
+          "correct": "B",
+          "explanation": "Hessian = matrix of second derivatives.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 28,
+          "text": "If f is convex and differentiable, then:",
+          "options": [
+            "A) f(y) ≥ f(x)+∇f(x)ᵀ(y−x)",
+            "B) f(y) ≤ f(x)+∇f(x)ᵀ(y−x)",
+            "C) ∇²f(x) ≺ 0",
+            "D) Local minima aren’t global"
+          ],
+          "correct": "A",
+          "explanation": "First-order condition of convexity.",
+          "difficulty": "intermediate",
+          "topics": [
+            "convexity"
+          ]
+        },
+        {
+          "id": 29,
+          "text": "Newton’s method uses:",
+          "options": [
+            "A) Only gradient",
+            "B) Only subgradient",
+            "C) Gradient and Hessian",
+            "D) Momentum only"
+          ],
+          "correct": "C",
+          "explanation": "Update uses ∇f and ∇²f.",
+          "difficulty": "intermediate",
+          "topics": [
+            "Newton"
+          ]
+        },
+        {
+          "id": 30,
+          "text": "For f L-smooth (∇f Lipschitz with L), gradient descent is stable when step η:",
+          "options": [
+            "A) η > 2/L",
+            "B) η = 2L",
+            "C) 0 < η < 2/L",
+            "D) Any η"
+          ],
+          "correct": "C",
+          "explanation": "Classical step size bound.",
+          "difficulty": "intermediate",
+          "topics": [
+            "Lipschitz",
+            "GD"
+          ]
+        },
+        {
+          "id": 31,
+          "text": "Projected gradient descent handles:",
+          "options": [
+            "A) Unconstrained only",
+            "B) Equality constraints only",
+            "C) Convex set constraints via projection",
+            "D) Stochastic noise only"
+          ],
+          "correct": "C",
+          "explanation": "Projection onto feasible set.",
+          "difficulty": "intermediate",
+          "topics": [
+            "constraints"
+          ]
+        },
+        {
+          "id": 32,
+          "text": "At KKT point for inequality constraints g_i(x) ≤ 0:",
+          "options": [
+            "A) λ_i ≥ 0 and λ_i g_i(x)=0",
+            "B) λ_i ≤ 0",
+            "C) λ_i arbitrary",
+            "D) No stationarity needed"
+          ],
+          "correct": "A",
+          "explanation": "Complementary slackness and dual feasibility.",
+          "difficulty": "advanced",
+          "topics": [
+            "KKT"
+          ]
+        },
+        {
+          "id": 33,
+          "text": "Lagrangian for minimize f(x) s.t. h(x)=0 is:",
+          "options": [
+            "A) f(x)+λᵀh(x)",
+            "B) f(x)−λᵀh(x)",
+            "C) λᵀh(x)",
+            "D) f(x)"
+          ],
+          "correct": "A",
+          "explanation": "Standard sign convention.",
+          "difficulty": "basic",
+          "topics": [
+            "Lagrangian"
+          ]
+        },
+        {
+          "id": 34,
+          "text": "Armijo (backtracking) line search aims to:",
+          "options": [
+            "A) Increase objective sufficiently",
+            "B) Ensure sufficient decrease",
+            "C) Keep step fixed",
+            "D) Maximize curvature"
+          ],
+          "correct": "B",
+          "explanation": "Sufficient decrease condition.",
+          "difficulty": "intermediate",
+          "topics": [
+            "line search"
+          ]
+        },
+        {
+          "id": 35,
+          "text": "If ∇²f(x) ≻ 0 for all x, then f is:",
+          "options": [
+            "A) Concave",
+            "B) Linear",
+            "C) Strongly convex",
+            "D) Quasiconvex"
+          ],
+          "correct": "C",
+          "explanation": "Positive definite Hessian ⇒ strong convexity.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 36,
+          "text": "Stochastic gradient descent (SGD) uses:",
+          "options": [
+            "A) Full gradients always",
+            "B) Mini-batch/random gradients",
+            "C) Second derivatives",
+            "D) Exact line search"
+          ],
+          "correct": "B",
+          "explanation": "SGD uses noisy gradient estimates.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 37,
+          "text": "Momentum in optimization helps:",
+          "options": [
+            "A) Increase noise",
+            "B) Escape shallow minima and damp oscillations",
+            "C) Enforce constraints",
+            "D) Compute Hessian"
+          ],
+          "correct": "B",
+          "explanation": "Momentum accelerates and smooths updates.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 38,
+          "text": "ADAM combines:",
+          "options": [
+            "A) Nesterov + Newton",
+            "B) RMSProp + momentum",
+            "C) SGD + exact line search",
+            "D) L-BFGS + Newton"
+          ],
+          "correct": "B",
+          "explanation": "ADAM ≈ RMSProp with momentum.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 39,
+          "text": "Dual problem provides:",
+          "options": [
+            "A) Always worse bound",
+            "B) Lower bound for minimization",
+            "C) Upper bound for minimization",
+            "D) No bound"
+          ],
+          "correct": "B",
+          "explanation": "Weak duality.",
+          "difficulty": "intermediate",
+          "topics": [
+            "duality"
+          ]
+        },
+        {
+          "id": 40,
+          "text": "Barrier methods enforce constraints by adding:",
+          "options": [
+            "A) Penalties for violations",
+            "B) Equality multipliers",
+            "C) Random noise",
+            "D) L-BFGS memory"
+          ],
+          "correct": "A",
+          "explanation": "Interior-point/barrier penalize approaching boundary.",
+          "difficulty": "advanced",
+          "topics": []
+        },
+        {
+          "id": 41,
+          "text": "For convex f, any stationary point is:",
+          "options": [
+            "A) Saddle point",
+            "B) Global minimum",
+            "C) Local maximum",
+            "D) Infeasible"
+          ],
+          "correct": "B",
+          "explanation": "Convexity ensures global optimality.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 42,
+          "text": "L-BFGS primarily approximates:",
+          "options": [
+            "A) Gradient",
+            "B) Hessian inverse (or its action)",
+            "C) Objective value",
+            "D) Constraints"
+          ],
+          "correct": "B",
+          "explanation": "Quasi-Newton.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 43,
+          "text": "Strong convexity with parameter μ implies:",
+          "options": [
+            "A) f(y) ≥ f(x)+∇f(x)ᵀ(y−x) + μ/2 ||y−x||²",
+            "B) Lipschitz gradient with L",
+            "C) Non-differentiability",
+            "D) Concavity"
+          ],
+          "correct": "A",
+          "explanation": "Definition of μ-strong convexity.",
+          "difficulty": "advanced",
+          "topics": []
+        },
+        {
+          "id": 44,
+          "text": "Nesterov accelerated gradient differs from momentum by:",
+          "options": [
+            "A) No lookahead gradient",
+            "B) Using a lookahead point for gradient evaluation",
+            "C) Replacing gradient with Hessian",
+            "D) Using Adam moments"
+          ],
+          "correct": "B",
+          "explanation": "NAG evaluates gradient at the extrapolated point.",
+          "difficulty": "advanced",
+          "topics": []
+        },
+        {
+          "id": 45,
+          "text": "KKT conditions include stationarity, primal feasibility, dual feasibility, and:",
+          "options": [
+            "A) Complementary slackness",
+            "B) Slater’s violation",
+            "C) Newton step",
+            "D) Exact line search"
+          ],
+          "correct": "A",
+          "explanation": "The four KKT parts.",
+          "difficulty": "basic",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "id": "probability",
+      "title": "Probability Theory",
+      "description": "Distributions, Bayes' theorem, random variables",
+      "questionRange": "46-65",
+      "questions": [
+        {
+          "id": 46,
+          "text": "For independent A and B, P(A ∩ B) =",
+          "options": [
+            "A) P(A)+P(B)",
+            "B) P(A)P(B)",
+            "C) P(A)−P(B)",
+            "D) P(A)/P(B)"
+          ],
+          "correct": "B",
+          "explanation": "Definition of independence.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 47,
+          "text": "Bayes’ rule for posterior P(A|B) equals:",
+          "options": [
+            "A) P(B|A)P(A)/P(B)",
+            "B) P(A)P(B)",
+            "C) P(B|A)/P(A)",
+            "D) P(A∩B)−P(A)"
+          ],
+          "correct": "A",
+          "explanation": "Bayes theorem.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 48,
+          "text": "Expectation linearity says E[aX+bY] =",
+          "options": [
+            "A) aE[X]+bE[Y]",
+            "B) aE[X]bE[Y]",
+            "C) a+b",
+            "D) E[X+Y]/ab"
+          ],
+          "correct": "A",
+          "explanation": "Linearity regardless of independence.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 49,
+          "text": "Var(X) equals:",
+          "options": [
+            "A) E[X]²",
+            "B) E[X²]−(E[X])²",
+            "C) E[X²]+E[X]",
+            "D) E[X]"
+          ],
+          "correct": "B",
+          "explanation": "Definition of variance.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 50,
+          "text": "Cov(X,Y)=0 implies independence:",
+          "options": [
+            "A) Always",
+            "B) For Gaussian variables",
+            "C) Never",
+            "D) Only if X=Y"
+          ],
+          "correct": "B",
+          "explanation": "Zero covariance ⇒ independence for jointly normal.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 51,
+          "text": "PMF must satisfy:",
+          "options": [
+            "A) Σ p(x) = 1 and p(x)≥0",
+            "B) Σ p(x) = 0",
+            "C) p(x)≤0",
+            "D) ∫ p(x)dx = 1"
+          ],
+          "correct": "A",
+          "explanation": "Discrete probabilities sum to 1.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 52,
+          "text": "PDF f(x) must satisfy:",
+          "options": [
+            "A) f(x)≥0 and ∫ f(x)dx=1",
+            "B) Σ f(x)=1",
+            "C) f(x)≤0",
+            "D) ∫ f(x)dx=0"
+          ],
+          "correct": "A",
+          "explanation": "Continuous densities integrate to 1.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 53,
+          "text": "CLT states that properly normalized sample mean tends to:",
+          "options": [
+            "A) Uniform",
+            "B) Normal",
+            "C) Exponential",
+            "D) Poisson"
+          ],
+          "correct": "B",
+          "explanation": "Central Limit Theorem.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 54,
+          "text": "Law of Large Numbers implies sample mean:",
+          "options": [
+            "A) Diverges",
+            "B) Converges to population mean",
+            "C) Equals variance",
+            "D) Is unbiased only if n>30"
+          ],
+          "correct": "B",
+          "explanation": "LLN convergence.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 55,
+          "text": "MGF M_X(t)=E[e^{tX}] uniquely determines:",
+          "options": [
+            "A) Mean only",
+            "B) Distribution (if exists in neighborhood of 0)",
+            "C) Variance only",
+            "D) Mode only"
+          ],
+          "correct": "B",
+          "explanation": "MGF characterizes distribution.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 56,
+          "text": "If X~Bernoulli(p), then E[X] and Var(X) are:",
+          "options": [
+            "A) p, p(1−p)",
+            "B) 1−p, p",
+            "C) p², p",
+            "D) 0,1"
+          ],
+          "correct": "A",
+          "explanation": "Bernoulli moments.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 57,
+          "text": "If X~Poisson(λ), then E[X] and Var(X) are:",
+          "options": [
+            "A) λ, λ",
+            "B) λ, √λ",
+            "C) √λ, λ",
+            "D) 1, λ"
+          ],
+          "correct": "A",
+          "explanation": "Poisson moments.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 58,
+          "text": "If X and Y independent, Var(X+Y) =",
+          "options": [
+            "A) Var(X)+Var(Y)",
+            "B) Var(X)−Var(Y)",
+            "C) Var(X)Var(Y)",
+            "D) 0"
+          ],
+          "correct": "A",
+          "explanation": "Variances add for independent variables.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 59,
+          "text": "For continuous X with pdf f, P(a≤X≤b) =",
+          "options": [
+            "A) f(b)−f(a)",
+            "B) ∫_a^b f(x) dx",
+            "C) E[X]",
+            "D) 1−E[X]"
+          ],
+          "correct": "B",
+          "explanation": "Integral of pdf over interval.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 60,
+          "text": "If X~N(μ,σ²), standardized Z=(X−μ)/σ has:",
+          "options": [
+            "A) N(0,1)",
+            "B) t distribution",
+            "C) χ²",
+            "D) F distribution"
+          ],
+          "correct": "A",
+          "explanation": "Standard normal.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 61,
+          "text": "Conditional expectation E[X|Y] is:",
+          "options": [
+            "A) A constant only",
+            "B) A function of Y",
+            "C) Always equal to E[X]",
+            "D) Zero"
+          ],
+          "correct": "B",
+          "explanation": "It’s a random variable measurable w.r.t. Y.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 62,
+          "text": "Chebyshev’s inequality bounds:",
+          "options": [
+            "A) Tail probabilities using variance",
+            "B) Mean using variance",
+            "C) PDF using MGF",
+            "D) CLT rate"
+          ],
+          "correct": "A",
+          "explanation": "P(|X−μ|≥kσ) ≤ 1/k².",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 63,
+          "text": "If X~Uniform(0,1), then E[X] and Var(X) are:",
+          "options": [
+            "A) 1/2, 1/12",
+            "B) 1, 1",
+            "C) 0, 1/2",
+            "D) 1/2, 1/8"
+          ],
+          "correct": "A",
+          "explanation": "Uniform moments.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 64,
+          "text": "Exponential(λ) distribution is memoryless along with:",
+          "options": [
+            "A) Normal",
+            "B) Poisson counts, Geometric (discrete)",
+            "C) Beta",
+            "D) Gamma"
+          ],
+          "correct": "B",
+          "explanation": "Memoryless: Exponential (continuous) and Geometric (discrete).",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 65,
+          "text": "If X,Y bivariate normal with ρ=0, then:",
+          "options": [
+            "A) Dependent",
+            "B) Independent",
+            "C) Identical",
+            "D) Poisson"
+          ],
+          "correct": "B",
+          "explanation": "Zero correlation ⇒ independence for joint normal.",
+          "difficulty": "basic",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "id": "statistics",
+      "title": "Statistics & Inference",
+      "description": "MLE, hypothesis testing, confidence intervals",
+      "questionRange": "66-80",
+      "questions": [
+        {
+          "id": 66,
+          "text": "The maximum likelihood estimator (MLE) maximizes:",
+          "options": [
+            "A) Posterior",
+            "B) Likelihood",
+            "C) Prior",
+            "D) Sample variance"
+          ],
+          "correct": "B",
+          "explanation": "MLE maximizes L(θ|data).",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 67,
+          "text": "MAP estimator maximizes:",
+          "options": [
+            "A) Likelihood only",
+            "B) Posterior ∝ likelihood × prior",
+            "C) Prior only",
+            "D) Evidence P(data)"
+          ],
+          "correct": "B",
+          "explanation": "MAP uses prior + likelihood.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 68,
+          "text": "A 95% confidence interval means:",
+          "options": [
+            "A) Parameter lies in the interval with prob. 0.95",
+            "B) Procedure covers the true parameter 95% of the time",
+            "C) Posterior prob=0.95",
+            "D) Sample mean certainty=95%"
+          ],
+          "correct": "B",
+          "explanation": "Frequentist interpretation.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 69,
+          "text": "p-value is:",
+          "options": [
+            "A) Prob(H₀ true)",
+            "B) Prob(data as or more extreme under H₀)",
+            "C) Prob(H₁ true)",
+            "D) CI half-width"
+          ],
+          "correct": "B",
+          "explanation": "Definition of p-value.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 70,
+          "text": "When σ unknown and n small, test mean with:",
+          "options": [
+            "A) z-test",
+            "B) t-test",
+            "C) χ² test",
+            "D) F-test"
+          ],
+          "correct": "B",
+          "explanation": "Use Student’s t.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 71,
+          "text": "Bias of an estimator θ̂ is:",
+          "options": [
+            "A) Var(θ̂)",
+            "B) E[θ̂]−θ",
+            "C) √Var(θ̂)",
+            "D) 0 always"
+          ],
+          "correct": "B",
+          "explanation": "Bias definition.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 72,
+          "text": "Sufficient statistic (Neyman–Fisher) often found via:",
+          "options": [
+            "A) Cramer–Rao",
+            "B) Factorization theorem",
+            "C) CLT",
+            "D) LLN"
+          ],
+          "correct": "B",
+          "explanation": "Factorization criterion.",
+          "difficulty": "advanced",
+          "topics": []
+        },
+        {
+          "id": 73,
+          "text": "Cramér–Rao lower bound limits:",
+          "options": [
+            "A) Bias",
+            "B) Minimum variance of unbiased estimators",
+            "C) MLE existence",
+            "D) Prior weight"
+          ],
+          "correct": "B",
+          "explanation": "CRLB bound.",
+          "difficulty": "advanced",
+          "topics": []
+        },
+        {
+          "id": 74,
+          "text": "Two-sided hypothesis test at α uses critical region where:",
+          "options": [
+            "A) Test statistic in extreme tails",
+            "B) Always center region",
+            "C) One tail only",
+            "D) p>α"
+          ],
+          "correct": "A",
+          "explanation": "Reject for extreme values.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 75,
+          "text": "AIC balances:",
+          "options": [
+            "A) Fit only",
+            "B) Fit and complexity (2k penalty)",
+            "C) Complexity only",
+            "D) Prior"
+          ],
+          "correct": "B",
+          "explanation": "AIC = 2k − 2ln(L).",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 76,
+          "text": "Bonferroni correction controls:",
+          "options": [
+            "A) Power",
+            "B) Family-wise error rate",
+            "C) Posterior odds",
+            "D) Prior odds"
+          ],
+          "correct": "B",
+          "explanation": "Divide α across tests.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 77,
+          "text": "Nonparametric test alternative to t-test:",
+          "options": [
+            "A) Wilcoxon signed-rank / Mann–Whitney U",
+            "B) χ² only",
+            "C) F-test",
+            "D) Shapiro–Wilk"
+          ],
+          "correct": "A",
+          "explanation": "Rank-based tests.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 78,
+          "text": "Bootstrap primarily estimates:",
+          "options": [
+            "A) Priors",
+            "B) Sampling distribution via resampling",
+            "C) Exact parametric form",
+            "D) P-values only"
+          ],
+          "correct": "B",
+          "explanation": "Resampling technique.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 79,
+          "text": "Type I error equals:",
+          "options": [
+            "A) False positive rate (α)",
+            "B) False negative",
+            "C) Power",
+            "D) 1−α"
+          ],
+          "correct": "A",
+          "explanation": "Rejecting true H₀.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 80,
+          "text": "Power of a test is:",
+          "options": [
+            "A) P(reject H₀ | H₁ true)",
+            "B) α",
+            "C) 1−α",
+            "D) P(accept H₀ | H₀ true)"
+          ],
+          "correct": "A",
+          "explanation": "Sensitivity of the test.",
+          "difficulty": "basic",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "id": "ml-fundamentals",
+      "title": "Machine Learning Fundamentals",
+      "description": "Bias-variance, algorithms, evaluation",
+      "questionRange": "81-100",
+      "questions": [
+        {
+          "id": 81,
+          "text": "Bias–variance decomposition: expected test error ≈",
+          "options": [
+            "A) Bias + Variance",
+            "B) Bias² + Variance + irreducible error",
+            "C) Bias × Variance",
+            "D) Bias − Variance"
+          ],
+          "correct": "B",
+          "explanation": "Classic decomposition.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 82,
+          "text": "L2 regularization (ridge) primarily:",
+          "options": [
+            "A) Sets many coefficients to zero",
+            "B) Shrinks coefficients continuously",
+            "C) Increases variance",
+            "D) Removes intercept"
+          ],
+          "correct": "B",
+          "explanation": "L2 shrinks but rarely sparsifies.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 83,
+          "text": "L1 regularization (lasso) tends to:",
+          "options": [
+            "A) Encourage sparsity",
+            "B) Increase all weights",
+            "C) Be equivalent to ridge",
+            "D) Ignore features"
+          ],
+          "correct": "A",
+          "explanation": "L1 promotes zero coefficients.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 84,
+          "text": "SVM with large C tends to:",
+          "options": [
+            "A) Be more tolerant to errors",
+            "B) Overfit (hard margin)",
+            "C) Underfit strongly",
+            "D) Ignore support vectors"
+          ],
+          "correct": "B",
+          "explanation": "Large C penalizes misclassification heavily.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 85,
+          "text": "k-NN suffers when:",
+          "options": [
+            "A) k is too large (over-smoothing)",
+            "B) High dimensions (curse)",
+            "C) Distance not scaled",
+            "D) All of the above"
+          ],
+          "correct": "D",
+          "explanation": "Common pitfalls.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 86,
+          "text": "Decision trees prone to overfit due to:",
+          "options": [
+            "A) High bias",
+            "B) High variance",
+            "C) Linear assumptions",
+            "D) Lack of features"
+          ],
+          "correct": "B",
+          "explanation": "Trees have high variance; bagging helps.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 87,
+          "text": "Random forest reduces variance via:",
+          "options": [
+            "A) Boosting",
+            "B) Bagging and feature subsampling",
+            "C) L1 penalty",
+            "D) PCA"
+          ],
+          "correct": "B",
+          "explanation": "Ensemble averaging.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 88,
+          "text": "Gradient boosting sequentially:",
+          "options": [
+            "A) Fits trees in parallel",
+            "B) Fits new models to residuals",
+            "C) Randomizes labels",
+            "D) Only uses stumps"
+          ],
+          "correct": "B",
+          "explanation": "Boost to correct residuals.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 89,
+          "text": "Cross-validation mainly estimates:",
+          "options": [
+            "A) Training error",
+            "B) Generalization performance",
+            "C) Posterior",
+            "D) Prior"
+          ],
+          "correct": "B",
+          "explanation": "Model selection/validation.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 90,
+          "text": "ROC curve plots:",
+          "options": [
+            "A) Precision vs recall",
+            "B) TPR vs FPR",
+            "C) Accuracy vs recall",
+            "D) Loss vs epoch"
+          ],
+          "correct": "B",
+          "explanation": "ROC definition.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 91,
+          "text": "AUC of random classifier is:",
+          "options": [
+            "A) 0",
+            "B) 0.5",
+            "C) 1",
+            "D) Undefined"
+          ],
+          "correct": "B",
+          "explanation": "Baseline 0.5.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 92,
+          "text": "Naive Bayes assumes:",
+          "options": [
+            "A) Features independent given class",
+            "B) Linear decision boundary always",
+            "C) Gaussian priors only",
+            "D) Equal class priors"
+          ],
+          "correct": "A",
+          "explanation": "Conditional independence.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 93,
+          "text": "k-means objective minimizes:",
+          "options": [
+            "A) Within-cluster sum of squares",
+            "B) Between-cluster variance",
+            "C) Silhouette directly",
+            "D) Entropy"
+          ],
+          "correct": "A",
+          "explanation": "WCSS objective.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 94,
+          "text": "PCA finds directions that:",
+          "options": [
+            "A) Maximize classification accuracy",
+            "B) Maximize explained variance",
+            "C) Minimize reconstruction error only",
+            "D) Are orthogonal to data"
+          ],
+          "correct": "B",
+          "explanation": "Principal components capture variance.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 95,
+          "text": "Early stopping acts as:",
+          "options": [
+            "A) Data augmentation",
+            "B) Regularization",
+            "C) Exact optimizer",
+            "D) Prior"
+          ],
+          "correct": "B",
+          "explanation": "Prevents overfitting.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 96,
+          "text": "Dropout in NNs:",
+          "options": [
+            "A) Increases co-adaptation",
+            "B) Randomly drops units during training",
+            "C) Is a testing-time trick only",
+            "D) Eliminates all overfitting"
+          ],
+          "correct": "B",
+          "explanation": "Regularization method.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 97,
+          "text": "Softmax outputs:",
+          "options": [
+            "A) Unnormalized scores",
+            "B) Probabilities summing to 1",
+            "C) Binary outputs only",
+            "D) Distances"
+          ],
+          "correct": "B",
+          "explanation": "Multiclass probabilities.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 98,
+          "text": "ReLU activation is:",
+          "options": [
+            "A) Smooth and bounded",
+            "B) max(0, x)",
+            "C) Periodic",
+            "D) Quadratic"
+          ],
+          "correct": "B",
+          "explanation": "Rectified Linear Unit.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 99,
+          "text": "Vanishing gradient is mitigated by:",
+          "options": [
+            "A) Sigmoid everywhere",
+            "B) Proper initialization, ReLU-like activations, residuals",
+            "C) Removing backprop",
+            "D) Increasing depth blindly"
+          ],
+          "correct": "B",
+          "explanation": "Common remedies.",
+          "difficulty": "intermediate",
+          "topics": []
+        },
+        {
+          "id": 100,
+          "text": "Batch normalization helps by:",
+          "options": [
+            "A) Removing need for any learning rate",
+            "B) Normalizing layer inputs to stabilize training",
+            "C) Eliminating overfitting entirely",
+            "D) Replacing optimizer"
+          ],
+          "correct": "B",
+          "explanation": "Stabilizes and speeds training.",
+          "difficulty": "intermediate",
+          "topics": []
+        }
+      ]
+    }
+  ],
+  "answerKey": {
+    "1": "C",
+    "2": "C",
+    "3": "B",
+    "4": "B",
+    "5": "B",
+    "6": "A",
+    "7": "B",
+    "8": "C",
+    "9": "B",
+    "10": "C",
+    "11": "B",
+    "12": "B",
+    "13": "C",
+    "14": "B",
+    "15": "C",
+    "16": "B",
+    "17": "B",
+    "18": "C",
+    "19": "A",
+    "20": "C",
+    "21": "C",
+    "22": "B",
+    "23": "A",
+    "24": "B",
+    "25": "B",
+    "26": "D",
+    "27": "B",
+    "28": "A",
+    "29": "C",
+    "30": "C",
+    "31": "C",
+    "32": "A",
+    "33": "A",
+    "34": "B",
+    "35": "C",
+    "36": "B",
+    "37": "B",
+    "38": "B",
+    "39": "B",
+    "40": "A",
+    "41": "B",
+    "42": "B",
+    "43": "A",
+    "44": "B",
+    "45": "A",
+    "46": "B",
+    "47": "A",
+    "48": "A",
+    "49": "B",
+    "50": "B",
+    "51": "A",
+    "52": "A",
+    "53": "B",
+    "54": "B",
+    "55": "B",
+    "56": "A",
+    "57": "A",
+    "58": "A",
+    "59": "B",
+    "60": "A",
+    "61": "B",
+    "62": "A",
+    "63": "A",
+    "64": "B",
+    "65": "B",
+    "66": "B",
+    "67": "B",
+    "68": "B",
+    "69": "B",
+    "70": "B",
+    "71": "B",
+    "72": "B",
+    "73": "B",
+    "74": "A",
+    "75": "B",
+    "76": "B",
+    "77": "A",
+    "78": "B",
+    "79": "A",
+    "80": "A",
+    "81": "B",
+    "82": "B",
+    "83": "A",
+    "84": "B",
+    "85": "D",
+    "86": "B",
+    "87": "B",
+    "88": "B",
+    "89": "B",
+    "90": "B",
+    "91": "B",
+    "92": "A",
+    "93": "A",
+    "94": "B",
+    "95": "B",
+    "96": "B",
+    "97": "B",
+    "98": "B",
+    "99": "B",
+    "100": "B"
+  },
+  "statistics": {
+    "difficultyDistribution": {
+      "basic": 65,
+      "intermediate": 28,
+      "advanced": 7
+    }
+  }
+}
