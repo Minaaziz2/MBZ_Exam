@@ -1242,7 +1242,7 @@
       "id": "ml-fundamentals",
       "title": "Machine Learning Fundamentals",
       "description": "Bias-variance, algorithms, evaluation",
-      "questionRange": "81-100",
+      "questionRange": "81-115",
       "questions": [
         {
           "id": 81,
