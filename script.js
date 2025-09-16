@@ -25,7 +25,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 async function loadQuestions() {
   try {
-    const resp = await fetch('questions.json', { cache: 'no-store' });
+    // Build a robust base URL that works in root *or* subfolders (e.g., /MBZ_Exam/)
+    const base = (location.origin + location.pathname).replace(/\/[^/]*$/, '/');
+    const url = `${base}questions.json?v=${Date.now()}`;
+
+    const resp = await fetch(url, { cache: 'no-store' });
+    if (!resp.ok) throw new Error(`Failed to fetch questions.json: ${resp.status} ${resp.statusText}`);
+
     dataCache = await resp.json();
 
     const content = document.getElementById('content');
@@ -33,18 +39,15 @@ async function loadQuestions() {
 
     let qCount = 0;
     dataCache.sections.forEach(section => {
-      // Section wrapper
       const secDiv = document.createElement('div');
       secDiv.className = 'section';
       secDiv.id = section.id;
 
-      // Section header
       const header = document.createElement('div');
       header.className = 'section-header ' + section.id.replace(/[^a-z\-]/g,'');
       header.textContent = `${section.title} (Questions ${section.questionRange})`;
       secDiv.appendChild(header);
 
-      // Questions
       section.questions.forEach(q => {
         qCount += 1;
         const qDiv = document.createElement('div');
@@ -92,12 +95,23 @@ async function loadQuestions() {
     });
 
     totalQuestions = qCount;
-    document.querySelector('.progress-text').innerHTML = `Progress: <span id="progress-count">0</span>/${totalQuestions}`;
+    document.querySelector('.progress-text').innerHTML =
+      `Progress: <span id="progress-count">0</span>/${totalQuestions}`;
+
   } catch (e) {
-    console.error('Failed to load questions.json', e);
-    alert('Failed to load questions. Please refresh.');
+    console.error(e);
+    const content = document.getElementById('content');
+    content.innerHTML = `
+      <div style="padding:16px;border:1px solid #f99;border-radius:12px;background:#fff7f7">
+        <strong>Couldn’t load questions.json.</strong><br>
+        <em>${e.message}</em><br>
+        Tip: Make sure <code>questions.json</code> is in the same folder as <code>index.html</code>,
+        and do a hard refresh (Ctrl+F5 / Cmd+Shift+R).
+      </div>
+    `;
   }
 }
+
 
 // Initialize all event listeners
 function initializeEventListeners() {
