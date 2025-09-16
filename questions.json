@@ -3,7 +3,7 @@
     "title": "PhD Machine Learning - 100 Practice Questions",
     "version": "3.0.0",
     "description": "Comprehensive practice questions for PhD Machine Learning admission screening",
-    "totalQuestions": 100,
+    "totalQuestions": 115,
     "lastUpdated": "2025-09-16"
   },
   "sections": [
@@ -1525,6 +1525,224 @@
           "topics": []
         }
       ]
+    },
+    {
+      "id": "computer-science",
+      "title": "Computer Science Basics",
+      "description": "Algorithms, data structures, and programming logic",
+      "questionRange": "101-115",
+      "questions": [
+        {
+          "id": 101,
+          "text": "What is the worst-case time complexity of searching for an element in an unsorted singly linked list of length n?",
+          "options": [
+            "A) O(1)",
+            "B) O(log n)",
+            "C) O(n)",
+            "D) O(n log n)"
+          ],
+          "correct": "C",
+          "explanation": "You may need to scan all n nodes in the worst case.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 102,
+          "text": "Which of the following sorting algorithms is stable in its typical implementation?",
+          "options": [
+            "A) QuickSort",
+            "B) HeapSort",
+            "C) MergeSort",
+            "D) SelectionSort"
+          ],
+          "correct": "C",
+          "explanation": "MergeSort preserves the order of equal keys in standard implementations.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 103,
+          "text": "For a binary search on a sorted array of size n, the worst-case time complexity is:",
+          "options": [
+            "A) O(1)",
+            "B) O(log n)",
+            "C) O(n)",
+            "D) O(n log n)"
+          ],
+          "correct": "B",
+          "explanation": "Each comparison halves the search space.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 104,
+          "text": "Consider the pseudocode: FOR i = 1..n: FOR j = 1..i: do_constant_work(). The total time is:",
+          "options": [
+            "A) O(n)",
+            "B) O(n log n)",
+            "C) O(n^2)",
+            "D) O(n^3)"
+          ],
+          "correct": "C",
+          "explanation": "Sum_{i=1..n} i = n(n+1)/2 = Θ(n^2).",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 105,
+          "text": "A queue data structure supports which access discipline?",
+          "options": [
+            "A) LIFO",
+            "B) FIFO",
+            "C) Random access",
+            "D) Priority-based"
+          ],
+          "correct": "B",
+          "explanation": "Queues are First-In First-Out.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 106,
+          "text": "In a hash table with chaining and load factor α, the expected time of a successful search is:",
+          "options": [
+            "A) O(1)",
+            "B) O(α)",
+            "C) O(log α)",
+            "D) O(n)"
+          ],
+          "correct": "B",
+          "explanation": "Expected list length is proportional to the load factor α.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 107,
+          "text": "A complete binary tree of height h has how many nodes (approximately)?",
+          "options": [
+            "A) Θ(h)",
+            "B) Θ(log h)",
+            "C) Θ(2^h)",
+            "D) Θ(h^2)"
+          ],
+          "correct": "C",
+          "explanation": "Complete binary trees grow exponentially with height: about 2^{h+1}-1 nodes.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 108,
+          "text": "Depth-First Search (DFS) on a graph with V vertices and E edges runs in:",
+          "options": [
+            "A) O(V)",
+            "B) O(E)",
+            "C) O(V+E)",
+            "D) O(VE)"
+          ],
+          "correct": "C",
+          "explanation": "Each vertex and edge is explored at most a constant number of times.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 109,
+          "text": "Which statement about Binary Search Trees (BST) is TRUE?",
+          "options": [
+            "A) In-order traversal yields a reverse-sorted sequence",
+            "B) In-order traversal yields a sorted sequence",
+            "C) Pre-order traversal yields a sorted sequence",
+            "D) Level-order traversal yields a sorted sequence"
+          ],
+          "correct": "B",
+          "explanation": "In-order traversal of a BST visits keys in ascending order.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 110,
+          "text": "Which of the following is typically in-place?",
+          "options": [
+            "A) MergeSort",
+            "B) Counting Sort",
+            "C) QuickSort (Lomuto/Hoare)",
+            "D) Radix Sort"
+          ],
+          "correct": "C",
+          "explanation": "QuickSort partitions the array in place; MergeSort/radix/counting usually need extra space.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 111,
+          "text": "Which WHILE loop is equivalent to the FOR loop: for(i=0; i<n; i++){ body }?",
+          "options": [
+            "A) i=0; while(i<=n){ body; }",
+            "B) i=0; while(i<n){ body; i++; }",
+            "C) i=1; while(i<n){ i++; body; }",
+            "D) i=0; while(i<=n){ i++; body; }"
+          ],
+          "correct": "B",
+          "explanation": "Initialize i=0, run while i<n, and increment i inside the loop body.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 112,
+          "text": "Given the recurrence T(n)=2T(n/2)+n, what is T(n)?",
+          "options": [
+            "A) Θ(n)",
+            "B) Θ(n log n)",
+            "C) Θ(n^2)",
+            "D) Θ(log n)"
+          ],
+          "correct": "B",
+          "explanation": "By Master Theorem (a=2, b=2, f(n)=n), T(n)=Θ(n log n).",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 113,
+          "text": "In a singly linked list, what is the time to insert a new node AFTER a given node (pointer provided)?",
+          "options": [
+            "A) O(1)",
+            "B) O(log n)",
+            "C) O(n)",
+            "D) O(n log n)"
+          ],
+          "correct": "A",
+          "explanation": "With a direct pointer to the predecessor, insertion is constant time.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 114,
+          "text": "Dynamic programming is most appropriate when a problem exhibits:",
+          "options": [
+            "A) Greedy-choice property only",
+            "B) Optimal substructure and overlapping subproblems",
+            "C) No substructure",
+            "D) Exponential state space with no reuse"
+          ],
+          "correct": "B",
+          "explanation": "DP leverages optimal substructure and repeated subproblems.",
+          "difficulty": "basic",
+          "topics": []
+        },
+        {
+          "id": 115,
+          "text": "What is the space complexity of recursive binary search on an array (excluding input storage)?",
+          "options": [
+            "A) O(1)",
+            "B) O(log n)",
+            "C) O(n)",
+            "D) O(n log n)"
+          ],
+          "correct": "B",
+          "explanation": "The recursion depth is O(log n); each call adds a constant frame.",
+          "difficulty": "basic",
+          "topics": []
+        }
+      ]
     }
   ],
   "answerKey": {
@@ -1627,11 +1845,26 @@
     "97": "B",
     "98": "B",
     "99": "B",
-    "100": "B"
+    "100": "B",
+    "101": "C",
+    "102": "C",
+    "103": "B",
+    "104": "C",
+    "105": "B",
+    "106": "B",
+    "107": "C",
+    "108": "C",
+    "109": "B",
+    "110": "C",
+    "111": "B",
+    "112": "B",
+    "113": "A",
+    "114": "B",
+    "115": "B"
   },
   "statistics": {
     "difficultyDistribution": {
-      "basic": 65,
+      "basic": 80,
       "intermediate": 28,
       "advanced": 7
     }
